@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PokemonList from './components/PokemonList';
 import PokemonDetail from './components/PokemonDetail';
+import Pokeball from './components/Pokeball';
 
 class App extends Component {
   
@@ -48,7 +49,7 @@ class App extends Component {
   render() {
     
     if (this.state.isLoading) {
-      return <div>Loading...</div>
+      return <Pokeball />
     } else if (this.state.route === 'home') {
       return (
         <div className="App">
