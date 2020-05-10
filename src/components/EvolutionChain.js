@@ -20,7 +20,7 @@ const EvolutionProfile = ({evolutionChain}) => {
                 <ul className="list pl0 ma0">
                     {
                         evolution.map((species, i) => {
-                        return <li key={i}>{species}</li>
+                        return <li key={i} className="ttc">{species}</li>
                         }) 
                     }
                 </ul>

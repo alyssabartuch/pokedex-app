@@ -133,9 +133,9 @@ class PokemonDetail extends Component {
             
             return (
                 <div className="mw6 center pa3 tc bg-lightest-blue br2 pa1 ma2 bw2 shadow-5">
-                    <button onClick={() => this.props.onRouteChange('home')}>Home</button>
-                    
-                    <h1>{name}</h1>
+                    <button className="f6 link dim br3 ph3 pv2 mb2 dib white bg-red" onClick={() => this.props.onRouteChange('home')}>Home</button>
+
+                    <h1 className="ttc">{name}</h1>
                     <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={name} />
 
                     <Types types={types}/>

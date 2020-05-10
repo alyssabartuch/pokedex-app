@@ -8,7 +8,7 @@ const EggGroup = ({ speciesInfo }) => {
                 <ul className="list pl0 ma0">
                     {
                         speciesInfo.egg_groups.map((eggGroup, i) => {
-                        return <li key={i}>{eggGroup.name}</li>
+                        return <li key={i} className="ttc">{eggGroup.name}</li>
                         })
                     }
                 </ul>

@@ -3,6 +3,7 @@ import './App.css';
 import PokemonList from './components/PokemonList';
 import PokemonDetail from './components/PokemonDetail';
 import Pokeball from './components/Pokeball';
+import SearchBox from './components/SearchBox';
 
 class App extends Component {
   
@@ -54,7 +55,8 @@ class App extends Component {
       return (
         <div className="App">
           <header> 
-            <h1 className="tc ttc">pokedex app</h1>
+            <h1 className="tc ttc red f-subheadline lh-title mb3">pokédex app</h1>
+            <SearchBox />
           </header>
           {/* TODO: add search field input */}
           <PokemonList 

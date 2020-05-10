@@ -9,7 +9,7 @@ const Moves = ({ moves }) => {
                     {
                         moves.map((moves, i) => {
                             if (moves.version_group_details[0].move_learn_method.name === 'level-up') {
-                            return <li key={i}>{moves.move.name}</li>
+                            return <li key={i} className="ttc">{moves.move.name}</li>
                             } else {
                                 return null
                             }

@@ -4,7 +4,7 @@ const SpeciesProfile = ({speciesInfo, height, weight, base_experience }) => {
 
     return (
         <div id="profile">
-            <h3 className="mt3 mb1">Profile:</h3>
+            <h3 className="mt3 mb1">Species Profile:</h3>
                 <ul className="list pl0 ma0">
                     <li>Height: {(height * .1).toFixed(1)} m</li>
                     <li>Weight: {(weight * .1).toFixed(1)} kg</li>

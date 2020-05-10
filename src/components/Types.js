@@ -8,7 +8,7 @@ const Types = ({ types }) => {
                 <ul className="list pl0 ma0">
                     {
                         types.map((types, i) => {
-                            return <li key={i}>{types.type.name}</li>
+                            return <li key={i} className="ttc">{types.type.name}</li>
                         })
                     }
                 </ul>
