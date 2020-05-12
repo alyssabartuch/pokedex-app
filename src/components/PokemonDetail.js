@@ -163,7 +163,6 @@ class PokemonDetail extends Component {
                         base_experience={base_experience} />
 
                     <Damage damage={damage}/>
-
                     
                     <EggGroup speciesInfo={speciesInfo}/>
 
