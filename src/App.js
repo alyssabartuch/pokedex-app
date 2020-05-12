@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       isLoading: true,
       route: 'home',
+      pokemonSearch: '',
       pokemonList: [],
       pokemonDetail: []
     }
@@ -47,8 +48,15 @@ class App extends Component {
     this.setState({ pokemonDetail: pokemon })
   }
 
+  onSearchChange = (event) => {
+    this.setState({pokemonSearch: event.target.value})
+  }
+
   render() {
-    
+    const filteredPokemon = this.state.pokemonList.filter(pokemon => {
+      return pokemon.name.toLowerCase().includes(this.state.pokemonSearch.toLowerCase());
+    });
+
     if (this.state.isLoading) {
       return <Pokeball />
     } else if (this.state.route === 'home') {
@@ -56,11 +64,11 @@ class App extends Component {
         <div className="App">
           <header> 
             <h1 className="tc ttc red f-subheadline lh-title mb3">pokédex app</h1>
-            <SearchBox />
+            <SearchBox onSearchChange={this.onSearchChange}/>
           </header>
           {/* TODO: add search field input */}
           <PokemonList 
-            pokemonList={this.state.pokemonList}
+            pokemonList={filteredPokemon}
             onRouteChange={this.onRouteChange}
             onPokemonDetail ={this.onPokemonDetail}/>
         </div>

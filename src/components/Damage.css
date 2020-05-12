@@ -63,6 +63,10 @@
     background-color: #35B4B2;
 }
 
+.damage-w {
+    width: 20px;
+}
+
 .ba {
     border-style: solid;
     border-width: 1px;
@@ -112,4 +116,19 @@
 .link:focus {
     transition: none;
     outline: 1px dotted currentColor;
+}
+
+.w2-half {    width: 3rem; }
+
+
+@media (--breakpoint-not-small) {
+    .w2-half-ns {  width: 3rem; }
+}
+
+@media (--breakpoint-medium) {
+    .w2-half-m {      width: 3rem; }
+}
+
+@media (--breakpoint-large) {
+    .w2-half-l {      width: 3rem; }
 }
