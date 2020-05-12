@@ -9,6 +9,7 @@ import Types from './Types';
 import Moves from './Moves';
 import Damage from './Damage';
 import Pokeball from './Pokeball';
+import Abilities from './Abilities';
 
 class PokemonDetail extends Component {
     
@@ -34,34 +35,45 @@ class PokemonDetail extends Component {
         const detailResponse = await fetch(`${this.props.pokemonDetail.url}`);
         const detailJson = await detailResponse.json();
         
+        const speciesJson = await this.getSpeciesJson(detailJson.species.url);
+        const gender = await this.getGenderJson(detailJson.name);
+        const evoChainJson = await this.getEvolutionChainJson(speciesJson.evolution_chain.url);
+
+        const damageUrls = [];
+
+        await detailJson.types.forEach(async (type) => {
+            damageUrls.push(type.type.url);
+        })
+
+        const damageJson = await this.getDamageJson(damageUrls);
 
         this.setState({
             pokemon: detailJson, 
             species: detailJson.species,
+            speciesInfo: speciesJson,
+            genderInfo: gender,
+            evolutionChain: evoChainJson,
             abilities: detailJson.abilities, 
+            damage: damageJson,
             moves: detailJson.moves,
             stats: detailJson.stats,
-            types: detailJson.types
+            types: detailJson.types,
+            isLoading: false
         })
-
-        await this.getSpeciesInfo();
-        await this.getGenderInfo();
-        await this.getEvolutionChainInfo();
-        await this.getDamageInfo();
     }
 
-    getSpeciesInfo = async () => {
-        const speciesResponse = await fetch(`${this.state.species.url}`);
+    getSpeciesJson = async (url) => {
+        const speciesResponse = await fetch(`${url}`);
         const speciesJson = await speciesResponse.json();
-        this.setState({speciesInfo: speciesJson})
+        return speciesJson
     }
 
-    getGenderInfo = async () => {
+    getGenderJson = async (name) => {
         const femaleResponse = await fetch(`https://pokeapi.co/api/v2/gender/1`);
         const femaleJson = await femaleResponse.json();
         
         let gender = femaleJson.pokemon_species_details.find(o => {
-            return o.pokemon_species.name === this.state.pokemon.name
+            return o.pokemon_species.name === name
         });
 
         if (!gender) {
@@ -69,7 +81,7 @@ class PokemonDetail extends Component {
             const maleJson = await maleResponse.json();
 
             gender = maleJson.pokemon_species_details.find(o => {
-                return o.pokemon_species.name === this.state.pokemon.name
+                return o.pokemon_species.name === name
             });
         }
 
@@ -78,32 +90,28 @@ class PokemonDetail extends Component {
             const genderlessJson = await genderlessResponse.json();
 
             gender = genderlessJson.pokemon_species_details.find(o => {
-                return o.pokemon_species.name === this.state.pokemon.name
+                return o.pokemon_species.name === name
             });
         }
 
-        this.setState({genderInfo: gender})
+        return gender
     }
 
-    getEvolutionChainInfo = async () => {
-        const evoChainResponse = await fetch(`${this.state.speciesInfo.evolution_chain.url}`);
+    getEvolutionChainJson = async (url) => {
+        const evoChainResponse = await fetch(`${url}`);
         const evoChainJson = await evoChainResponse.json();
-        this.setState({evolutionChain: evoChainJson })
+        return evoChainJson
     }
 
-    getDamageInfo = async () => {
-        const damageUrls = [];
+    getDamageJson = async (urls) => {
+        const promisesArray = await urls.map(url => fetch(url));
+        const damageResults = [];
 
-        this.state.types.forEach(async (type) => {
-            damageUrls.push(type.type.url);
-        })
-
-        Promise.all(damageUrls.map(url => {
-            return fetch(url).then(damageResponse => damageResponse.json())
-        })).then(damageResults => {
-            this.setState({ damage: damageResults, isLoading: false });
-        }).catch((err) => console.log(err))
-        
+        for await (let damageRequest of promisesArray) {
+            const damageJson = await damageRequest.json();
+            damageResults.push(damageJson);
+        }
+        return damageResults
     }
 
     render() {
@@ -143,8 +151,10 @@ class PokemonDetail extends Component {
                     <Genus speciesInfo={speciesInfo}/>
 
                     <Stats stats={stats}/>
-
+            
                     <GenderRatio genderInfo={genderInfo} name={name} />
+
+                    <Abilities abilities={abilities}/>
 
                     <SpeciesProfile
                         speciesInfo={speciesInfo}

@@ -12,6 +12,9 @@ const SpeciesProfile = ({speciesInfo, height, weight, base_experience }) => {
                     <li>Base Exp: {base_experience}</li>
                     <li>Base Happiness: {speciesInfo.base_happiness}</li>
                     <li>Color: {speciesInfo.color.name}</li>
+                    <li>Hatch Steps: {255*(speciesInfo.hatch_counter)}</li>
+                    <li>Growtht Rate: {speciesInfo.growth_rate.name}</li>
+                    <li>Habitat: {speciesInfo.habitat.name}</li>
                 </ul>
         </div>
         
