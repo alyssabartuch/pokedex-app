@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/pokedex-app/static/css/main.bc7eba7b.chunk.css",
-    "main.js": "/pokedex-app/static/js/main.829a8938.chunk.js",
-    "main.js.map": "/pokedex-app/static/js/main.829a8938.chunk.js.map",
+    "main.js": "/pokedex-app/static/js/main.62db88c6.chunk.js",
+    "main.js.map": "/pokedex-app/static/js/main.62db88c6.chunk.js.map",
     "runtime-main.js": "/pokedex-app/static/js/runtime-main.3d879a13.js",
     "runtime-main.js.map": "/pokedex-app/static/js/runtime-main.3d879a13.js.map",
     "static/css/2.036b41f9.chunk.css": "/pokedex-app/static/css/2.036b41f9.chunk.css",
-    "static/js/2.06038d8c.chunk.js": "/pokedex-app/static/js/2.06038d8c.chunk.js",
-    "static/js/2.06038d8c.chunk.js.map": "/pokedex-app/static/js/2.06038d8c.chunk.js.map",
+    "static/js/2.4cc51b4d.chunk.js": "/pokedex-app/static/js/2.4cc51b4d.chunk.js",
+    "static/js/2.4cc51b4d.chunk.js.map": "/pokedex-app/static/js/2.4cc51b4d.chunk.js.map",
     "index.html": "/pokedex-app/index.html",
-    "precache-manifest.c8ff04e5d4b581acbc6f8f174b52ec94.js": "/pokedex-app/precache-manifest.c8ff04e5d4b581acbc6f8f174b52ec94.js",
+    "precache-manifest.1f98cc337108da1cdcf047be86c212d9.js": "/pokedex-app/precache-manifest.1f98cc337108da1cdcf047be86c212d9.js",
     "service-worker.js": "/pokedex-app/service-worker.js",
     "static/css/2.036b41f9.chunk.css.map": "/pokedex-app/static/css/2.036b41f9.chunk.css.map",
     "static/css/main.bc7eba7b.chunk.css.map": "/pokedex-app/static/css/main.bc7eba7b.chunk.css.map",
-    "static/js/2.06038d8c.chunk.js.LICENSE.txt": "/pokedex-app/static/js/2.06038d8c.chunk.js.LICENSE.txt"
+    "static/js/2.4cc51b4d.chunk.js.LICENSE.txt": "/pokedex-app/static/js/2.4cc51b4d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3d879a13.js",
     "static/css/2.036b41f9.chunk.css",
-    "static/js/2.06038d8c.chunk.js",
+    "static/js/2.4cc51b4d.chunk.js",
     "static/css/main.bc7eba7b.chunk.css",
-    "static/js/main.829a8938.chunk.js"
+    "static/js/main.62db88c6.chunk.js"
   ]
 }
