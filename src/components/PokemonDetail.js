@@ -166,11 +166,13 @@ class PokemonDetail extends Component {
 
                     <Genus speciesInfo={speciesInfo}/>
 
-                    <Stats stats={stats}/>
+                    <div className="mt3 flex justify-around">
+                        <Abilities abilities={abilities}/>
+                        <GenderRatio genderInfo={genderInfo} name={name} />
+                    </div>
+                    
             
-                    <GenderRatio genderInfo={genderInfo} name={name} />
-
-                    <Abilities abilities={abilities}/>
+                    
 
                     <SpeciesProfile
                         speciesInfo={speciesInfo}
@@ -178,7 +180,11 @@ class PokemonDetail extends Component {
                         weight={weight} 
                         base_experience={base_experience} />
 
+                    <Stats stats={stats}/>
+
                     <Damage damage={damage}/>
+
+                    <Moves moves={moves}/>
                     
                     <EggGroup speciesInfo={speciesInfo}/>
 
@@ -186,7 +192,7 @@ class PokemonDetail extends Component {
                         handleClick={this.handleClick}
                         evolutionChain={evolutionChain}/>
 
-                    <Moves moves={moves}/>
+                    
                     
                 </div>
             )

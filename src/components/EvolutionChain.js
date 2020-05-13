@@ -44,7 +44,7 @@ const EvolutionProfile = ({evolutionChain, handleClick}) => {
     
     return (
         <div id="evolution-chain">
-            <h3 className="mt3 mb1 underline">Evolution Chain</h3>
+            <h3 className="mt4 mb4 underline">Evolution Chain</h3>
                 {
                     simpleEvoChain.map((species, i) => {
                         return (

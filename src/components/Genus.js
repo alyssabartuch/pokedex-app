@@ -8,7 +8,7 @@ const Genus = ({speciesInfo }) => {
 
     return (
         <div id="genus">
-            <h3 className="mt3 mb1 underline">{speciesInfo.genera.find(o => o.language.name === 'en').genus}</h3>
+            <h3 className="mt4 mb1 underline">{speciesInfo.genera.find(o => o.language.name === 'en').genus}</h3>
                 <p className="mt1">{flavorText}</p>
         </div>
         
