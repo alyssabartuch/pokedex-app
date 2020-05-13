@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-const GenderRatio = ({ genderInfo, name }) => {
+const GenderRatio = ({ genderInfo }) => {
 
     const getRatio = () => {
         
@@ -31,14 +31,13 @@ const GenderRatio = ({ genderInfo, name }) => {
 
     return (
         <div id="gender">
-            <h3 className="mt3 mb1">Gender Ratio:</h3>
+            <h3 className="mt3 mb1 underline">Gender Ratio</h3>
                 <div className="list pl0 ma0">
                     <p className="ma0">{genderRatio.male} <span className="male-symbol">♂</span></p>
                     <p className="ma0">{genderRatio.female} <span className="female-symbol">♀</span></p>
                 </div>
         </div>
     )
-    
 }
 
 export default GenderRatio;

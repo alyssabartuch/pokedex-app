@@ -4,7 +4,7 @@ const Abilities = ({abilities}) => {
 
     return (
         <div id="moves">
-            <h3 className="mt3 mb1">Abilities:</h3>
+            <h3 className="mt3 mb1 underline">Abilities</h3>
                 <ul className="list pl0 ma0">
                     {
                         abilities.map((abilities, i) => {

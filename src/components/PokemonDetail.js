@@ -32,9 +32,8 @@ class PokemonDetail extends Component {
 
     async componentDidMount() {
 
-        const detailResponse = await fetch(`${this.props.pokemonDetail.url}`);
-        const detailJson = await detailResponse.json();
         
+        const detailJson = await this.getPokemonDetails(this.props.pokemonDetail.url)
         const speciesJson = await this.getSpeciesJson(detailJson.species.url);
         const gender = await this.getGenderJson(detailJson.name);
         const evoChainJson = await this.getEvolutionChainJson(speciesJson.evolution_chain.url);
@@ -60,6 +59,12 @@ class PokemonDetail extends Component {
             types: detailJson.types,
             isLoading: false
         })
+    }
+
+    getPokemonDetails = async (url) => {
+        const detailResponse = await fetch(`${url}`);
+        const detailJson = await detailResponse.json();
+        return detailJson
     }
 
     getSpeciesJson = async (url) => {
@@ -114,6 +119,17 @@ class PokemonDetail extends Component {
         return damageResults
     }
 
+    handleClick = (species) => {
+        const pokemon = {
+            id: species.id,
+            name: species.name,
+            url: species.url
+        }
+        console.log(pokemon);
+        
+        this.props.onPokemonDetail(pokemon);
+    }
+
     render() {
 
         if (this.state.isLoading) {
@@ -166,7 +182,9 @@ class PokemonDetail extends Component {
                     
                     <EggGroup speciesInfo={speciesInfo}/>
 
-                    <EvolutionChain evolutionChain={evolutionChain}/>
+                    <EvolutionChain 
+                        handleClick={this.handleClick}
+                        evolutionChain={evolutionChain}/>
 
                     <Moves moves={moves}/>
                     

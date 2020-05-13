@@ -2,6 +2,7 @@ import React from 'react';
 import getDamageFrom from '../helpers/getDamageFrom';
 import getDamageTo from '../helpers/getDamageTo';
 import './Damage.css';
+import './Colors.css';
 
 const Damage = ({ damage }) => {
     
@@ -93,122 +94,122 @@ const Damage = ({ damage }) => {
             <h3 className="mt4 mb1 tc">
                 <span className="w3 f6 br-pill ba ph3 pv2 mb2 dib dark-gray">from</span>
                 <span className="right-arrow mr2 ml2">&#8674;</span>
-                <span>Damage</span>
+                <span className="underline">Damage</span>
                 <span className="right-arrow mr2 ml2">&#8674;</span>
                 <span className="w3 f6 br-pill ba ph3 pv2 mb2 dib dark-gray">to</span>
             </h3>
             <div className="list pl0 ma0">
                 <p className="ma0">
-                    {getFraction(damageToTypes.bug)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white bug-color">bug</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.bug)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white bug-color shadow-4">bug</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.bug)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.dragon)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white dragon-color">dragon</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.dragon)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white dragon-color shadow-4">dragon</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.dragon)}
                 </p>
                 <p className="ma0">
                     {getFraction(damageToTypes.electric)}
                     <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white electric-color">electric</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white electric-color shadow-4">electric</span>
                     <span className="right-arrow mr2 ml2">&#8674;</span>
-                    {getFraction(damageFromTypes.electric)}
+                    {getFraction(damageToTypes.electric)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.fairy)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white fairy-color">fairy</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.fairy)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white fairy-color shadow-4">fairy</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.fairy)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.fighting)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white fighting-color">fighting</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.fighting)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white fighting-color shadow-4">fighting</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.fighting)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.fire)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white fire-color">fire</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.fire)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white fire-color shadow-4">fire</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.fire)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.flying)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white flying-color">flying</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.flying)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white flying-color shadow-4">flying</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.flying)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.ghost)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white ghost-color">ghost</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.ghost)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white ghost-color shadow-4">ghost</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.ghost)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.grass)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white grass-color">grass</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.grass)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white grass-color shadow-4">grass</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.grass)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.ground)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white ground-color">ground</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.ground)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white ground-color shadow-4">ground</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.ground)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.normal)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white normal-color">normal</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.normal)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white normal-color shadow-4">normal</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.normal)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.poison)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white poison-color">poison</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.poison)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white poison-color shadow-4">poison</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.poison)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.psychic)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white psychic-color">psychic</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.psychic)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white psychic-color shadow-4">psychic</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.psychic)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.rock)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white rock-color">rock</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.rock)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white rock-color shadow-4">rock</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.rock)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.steel)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white steel-color">steel</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.steel)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white steel-color shadow-4">steel</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.steel)}
                 </p>
                 <p className="ma0">
-                    {getFraction(damageToTypes.water)}
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
-                    <span className="w4 f6 br-pill ph3 pv2 mb2 dib white water-color">water</span>
-                    <span className="right-arrow mr2 ml2">&#8674;</span>
                     {getFraction(damageFromTypes.water)}
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    <span className="ttc w4 f6 br-pill ph3 pv2 mb2 dib white water-color shadow-4">water</span>
+                    <span className="right-arrow mr2 ml2">&#8674;</span>
+                    {getFraction(damageToTypes.water)}
                 </p>
             </div>
 

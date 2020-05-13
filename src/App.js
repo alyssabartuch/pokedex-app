@@ -33,18 +33,11 @@ class App extends Component {
       .catch(console.log)
   }
 
-  getPokemonInfo = (url) => {
-    fetch(`${url}`)
-    .then(response => response.json)
-    .then(data => this.setState({ pokemon: data }))
-  } 
-
   onRouteChange = (route) => {
     this.setState({route})
   }
 
   onPokemonDetail = (pokemon) => {
-    
     this.setState({ pokemonDetail: pokemon })
   }
 
@@ -66,7 +59,7 @@ class App extends Component {
             <h1 className="tc ttc red f-subheadline lh-title mb3">pokédex app</h1>
             <SearchBox onSearchChange={this.onSearchChange}/>
           </header>
-          {/* TODO: add search field input */}
+
           <PokemonList 
             pokemonList={filteredPokemon}
             onRouteChange={this.onRouteChange}
@@ -77,6 +70,7 @@ class App extends Component {
       return (
         <section className="">
           <PokemonDetail 
+            onPokemonDetail={this.onPokemonDetail}
             pokemonDetail={this.state.pokemonDetail}
             onRouteChange={this.onRouteChange} />
         </section>

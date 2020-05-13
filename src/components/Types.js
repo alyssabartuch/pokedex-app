@@ -1,17 +1,18 @@
 import React from 'react';
+import './Colors.css';
 
 const Types = ({ types }) => {
 
     return (
         <div id="types">
-            <h3 className="mt3 mb1">Type(s):</h3>
-                <ul className="list pl0 ma0">
+            <h3 className="mt3 mb1 underline">Type(s)</h3>
+                <div className="list pl0 ma0">
                     {
                         types.map((types, i) => {
-                            return <li key={i} className="ttc">{types.type.name}</li>
+                            return <div key={i} className={`ttc w4 f6 center br-pill ph3 pv2 mb2  white ${types.type.name}-color shadow-4`}>{types.type.name}</div>
                         })
                     }
-                </ul>
+                </div>
         </div>
         
     )
