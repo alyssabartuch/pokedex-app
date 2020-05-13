@@ -2,13 +2,19 @@ import React from 'react';
 
 const Stats = ({ stats }) => {
 
+const getPercent = (statName) => {
+    let stat = stats.find(o => o.stat.name === statName).base_stat;
+    stat = Math.floor((stat / 200) * 100);
+    return stat
+}
+
 const getStat = (statName) => {
     return stats.find(o => o.stat.name === statName).base_stat;
 }
 
     return (
         <div id="stats">
-            <h3 className="mt3 mb1 underline">Base Stats</h3>
+            <h3 className="mt3 mt4 mb1 underline">Base Stats</h3>
                 <div className="list pl0 ma0">
 
                     <div className="w-70 center flex items-center">
@@ -16,7 +22,7 @@ const getStat = (statName) => {
                             HP:
                         </div>
                         <div className="progress flex items-center shadow-4">
-                            <div className="w-70 pa3 mr2 bar" style={{width: `${getStat('hp')}%`}}>
+                            <div className="w-70 pa3 mr2 bar" style={{width: `${getPercent('hp')}%`}}>
                                 <p className="percent">
                                     {getStat('hp')}
                                 </p>
@@ -29,7 +35,7 @@ const getStat = (statName) => {
                             Attack:
                         </div>
                         <div className="progress flex items-center shadow-4">
-                            <div className="w-70 pa3 mr2 bar" style={{width: `${getStat('attack')}%`}}>
+                            <div className="w-70 pa3 mr2 bar" style={{width: `${getPercent('attack')}%`}}>
                                 <p className="percent">
                                     {getStat('attack')}
                                 </p>
@@ -42,7 +48,7 @@ const getStat = (statName) => {
                             Defense:
                         </div>
                         <div className="progress flex items-center shadow-4">
-                            <div className="w-70 pa3 mr2 bar" style={{width: `${getStat('defense')}%`}}>
+                            <div className="w-70 pa3 mr2 bar" style={{width: `${getPercent('defense')}%`}}>
                                 <p className="percent">
                                     {getStat('defense')}
                                 </p>
@@ -55,7 +61,7 @@ const getStat = (statName) => {
                             Speed:
                         </div>
                         <div className="progress flex items-center shadow-4">
-                            <div className="w-70 pa3 mr2 bar" style={{width: `${getStat('speed')}%`}}>
+                            <div className="w-70 pa3 mr2 bar" style={{width: `${getPercent('speed')}%`}}>
                                 <p className="percent">
                                     {getStat('speed')}
                                 </p>
@@ -68,7 +74,7 @@ const getStat = (statName) => {
                             Sp Atk:
                         </div>
                         <div className="progress flex items-center shadow-4">
-                            <div className="w-70 pa3 mr2 bar" style={{width: `${getStat('special-attack')}%`}}>
+                            <div className="w-70 pa3 mr2 bar" style={{width: `${getPercent('special-attack')}%`}}>
                                 <p className="percent">
                                     {getStat('special-attack')}
                                 </p>
@@ -81,7 +87,7 @@ const getStat = (statName) => {
                             Sp Def:
                         </div>
                         <div className="progress flex items-center shadow-4">
-                            <div className="w-70 pa3 mr2 bar" style={{width: `${getStat('special-defense')}%`}}>
+                            <div className="w-70 pa3 mr2 bar" style={{width: `${getPercent('special-defense')}%`}}>
                                 <p className="percent">
                                     {getStat('special-defense')}
                                 </p>

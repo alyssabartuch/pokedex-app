@@ -5,7 +5,7 @@ const Types = ({ types }) => {
 
     return (
         <div id="types">
-            <h3 className="mt3 mb1 underline">Type(s)</h3>
+            <h3 className="mt3 mb2 underline">Type(s)</h3>
                 <div className="list pl0 ma0">
                     {
                         types.map((types, i) => {
