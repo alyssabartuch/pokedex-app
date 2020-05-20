@@ -30,35 +30,41 @@ class PokemonDetail extends Component {
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.pokemon.id !== nextState.pokemon.id) {
+            window.scrollTo(0, 0);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     async componentDidMount() {
-
-        
-        const detailJson = await this.getPokemonDetails(this.props.pokemonDetail.url)
-        const speciesJson = await this.getSpeciesJson(detailJson.species.url);
-        const gender = await this.getGenderJson(detailJson.name);
-        const evoChainJson = await this.getEvolutionChainJson(speciesJson.evolution_chain.url);
-
-        const damageUrls = [];
-
-        await detailJson.types.forEach(async (type) => {
-            damageUrls.push(type.type.url);
-        })
-
-        const damageJson = await this.getDamageJson(damageUrls);
-
-        this.setState({
-            pokemon: detailJson, 
-            species: detailJson.species,
-            speciesInfo: speciesJson,
-            genderInfo: gender,
-            evolutionChain: evoChainJson,
-            abilities: detailJson.abilities, 
-            damage: damageJson,
-            moves: detailJson.moves,
-            stats: detailJson.stats,
-            types: detailJson.types,
-            isLoading: false
-        })
+        await this.gatherPokemonInfo(this.props.pokemonDetail.id)
+    }
+    
+    gatherPokemonInfo = async (id) => {
+        if (id !== this.state.pokemon.id) {
+            const detailJson = await this.getPokemonDetails(`https://pokeapi.co/api/v2/pokemon/${id}`)
+            const speciesJson = await this.getSpeciesJson(detailJson.species.url);
+            const gender = await this.getGenderJson(detailJson.name);
+            const evoChainJson = await this.getEvolutionChainJson(speciesJson.evolution_chain.url);
+            const damageJson = await this.getDamageJson(detailJson);
+    
+            this.setState({
+                pokemon: detailJson, 
+                species: detailJson.species,
+                speciesInfo: speciesJson,
+                genderInfo: gender,
+                evolutionChain: evoChainJson,
+                abilities: detailJson.abilities, 
+                damage: damageJson,
+                moves: detailJson.moves,
+                stats: detailJson.stats,
+                types: detailJson.types,
+                isLoading: false
+            })
+        }
     }
 
     getPokemonDetails = async (url) => {
@@ -108,8 +114,13 @@ class PokemonDetail extends Component {
         return evoChainJson
     }
 
-    getDamageJson = async (urls) => {
-        const promisesArray = await urls.map(url => fetch(url));
+    getDamageJson = async (detailJson) => {
+        const damageUrls = [];
+        await detailJson.types.forEach(async (type) => {
+            damageUrls.push(type.type.url);
+        })
+
+        const promisesArray = await damageUrls.map(url => fetch(url));
         const damageResults = [];
 
         for await (let damageRequest of promisesArray) {
@@ -117,17 +128,6 @@ class PokemonDetail extends Component {
             damageResults.push(damageJson);
         }
         return damageResults
-    }
-
-    handleClick = (species) => {
-        const pokemon = {
-            id: species.id,
-            name: species.name,
-            url: species.url
-        }
-        console.log(pokemon);
-        
-        this.props.onPokemonDetail(pokemon);
     }
 
     render() {
@@ -170,9 +170,6 @@ class PokemonDetail extends Component {
                         <Abilities abilities={abilities}/>
                         <GenderRatio genderInfo={genderInfo} name={name} />
                     </div>
-                    
-            
-                    
 
                     <SpeciesProfile
                         speciesInfo={speciesInfo}
@@ -184,16 +181,13 @@ class PokemonDetail extends Component {
 
                     <Damage damage={damage}/>
 
-                    <Moves moves={moves}/>
-                    
-                    <EggGroup speciesInfo={speciesInfo}/>
-
                     <EvolutionChain 
-                        handleClick={this.handleClick}
+                        handleClick={this.gatherPokemonInfo}
                         evolutionChain={evolutionChain}/>
 
+                    <EggGroup speciesInfo={speciesInfo}/>
                     
-                    
+                    <Moves moves={moves}/>
                 </div>
             )
         }

@@ -70,7 +70,6 @@ class App extends Component {
       return (
         <section className="">
           <PokemonDetail 
-            onPokemonDetail={this.onPokemonDetail}
             pokemonDetail={this.state.pokemonDetail}
             onRouteChange={this.onRouteChange} />
         </section>

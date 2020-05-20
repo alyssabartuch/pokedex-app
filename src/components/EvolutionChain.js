@@ -44,12 +44,12 @@ const EvolutionProfile = ({evolutionChain, handleClick}) => {
     
     return (
         <div id="evolution-chain" className="mb1">
-            <h3 className="mt3 mb2 underline">Evolution Chain</h3>
+            <h3 className="mt4 mb2 underline">Evolution Chain</h3>
                 {
                     simpleEvoChain.map((species, i) => {
                         return (
                             <div key={i} className="dib">
-                                <div className="br4 ma1 pa1 grow pointer shadow-4 bg-near-white" onClick={() => handleClick(species)}>
+                                <div className="br4 ma1 pa1 grow pointer shadow-4 bg-near-white" onClick={() => handleClick(species.id)}>
                                     <img 
                                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${species.id}.png`} 
                                         alt='pokemon' />
