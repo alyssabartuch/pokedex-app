@@ -66,12 +66,13 @@ class App extends Component {
             onPokemonDetail ={this.onPokemonDetail}/>
         </div>
       );
-    } else if (this.state.route === 'detail') {
+    } else if (this.state.route.includes('pokemon/')) {
       return (
         <section className="">
           <PokemonDetail 
             pokemonDetail={this.state.pokemonDetail}
-            onRouteChange={this.onRouteChange} />
+            onRouteChange={this.onRouteChange} 
+            onPokemonDetail={this.onPokemonDetail}/>
         </section>
       )
             

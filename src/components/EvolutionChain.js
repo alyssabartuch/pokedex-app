@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EvolutionProfile = ({evolutionChain, handleClick}) => {
+const EvolutionProfile = ({ evolutionChain, gatherPokemonInfo, onRouteChange, onPokemonDetail }) => {
     const getSimplifiedEvoChain = () => {
         const simplifiedEvoChain = []
         const evo1 = evolutionChain.chain.species;
@@ -12,14 +12,14 @@ const EvolutionProfile = ({evolutionChain, handleClick}) => {
             simplifiedEvoChain.push({
                 id: id,
                 name: evo1.name, 
-                url: evo1.url
+                url: `https://pokeapi.co/api/v2/pokemon/${id}`
             })
             if (evo2.length > 0) {
                 const id = getId(evo2[0].species.url)
                 simplifiedEvoChain.push({
                     id: id,
                     name: evo2[0].species.name, 
-                    url: evo2[0].species.url
+                    url: `https://pokeapi.co/api/v2/pokemon/${id}`
                 })
                 evo3 = evolutionChain.chain.evolves_to[0].evolves_to;
                 if (evo3.length > 0) {
@@ -27,7 +27,7 @@ const EvolutionProfile = ({evolutionChain, handleClick}) => {
                     simplifiedEvoChain.push({
                         id: id,
                         name: evo3[0].species.name, 
-                        url: evo3[0].species.url
+                        url: `https://pokeapi.co/api/v2/pokemon/${id}`
                     })
                 }
             }
@@ -42,6 +42,17 @@ const EvolutionProfile = ({evolutionChain, handleClick}) => {
 
     const simpleEvoChain = getSimplifiedEvoChain();
     
+    const handleClick = (pokemon) => {
+        gatherPokemonInfo(pokemon.id);
+        onRouteChange(`pokemon/${pokemon.id}`)
+        onPokemonDetail({ 
+            id: pokemon.id,
+            name: pokemon.name, 
+            url: pokemon.url
+        })
+
+    }
+
     return (
         <div id="evolution-chain" className="mb1">
             <h3 className="mt4 mb2 underline">Evolution Chain</h3>
@@ -49,7 +60,7 @@ const EvolutionProfile = ({evolutionChain, handleClick}) => {
                     simpleEvoChain.map((species, i) => {
                         return (
                             <div key={i} className="dib">
-                                <div className="br4 ma1 pa1 grow pointer shadow-4 bg-near-white" onClick={() => handleClick(species.id)}>
+                                <div className="br4 ma1 pa1 grow pointer shadow-4 bg-near-white" onClick={() => handleClick(species)}>
                                     <img 
                                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${species.id}.png`} 
                                         alt='pokemon' />

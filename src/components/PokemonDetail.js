@@ -182,8 +182,10 @@ class PokemonDetail extends Component {
                     <Damage damage={damage}/>
 
                     <EvolutionChain 
-                        handleClick={this.gatherPokemonInfo}
-                        evolutionChain={evolutionChain}/>
+                        evolutionChain={evolutionChain}
+                        gatherPokemonInfo={this.gatherPokemonInfo}
+                        onRouteChange={this.props.onRouteChange}
+                        onPokemonDetail={this.props.onPokemonDetail} />
 
                     <EggGroup speciesInfo={speciesInfo}/>
                     

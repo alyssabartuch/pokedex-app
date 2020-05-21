@@ -14,7 +14,7 @@ const PokemonCard = ({ pokemonInfo, onRouteChange, onPokemonDetail }) => {
         }
         
         onPokemonDetail(pokemon)
-        onRouteChange('detail')
+        onRouteChange(`pokemon/${pokemon.id}`)
     }
 
     return (
